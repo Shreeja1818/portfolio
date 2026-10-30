@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shreeja | Portfolio</title>
+<meta name="description" content="Portfolio of Shreeja: Java, Python and web projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080d;--ink:#f6f1e7;--muted:#aaa595;--glass:rgba(255,255,255,.06);--glass2:rgba(255,255,255,.12);--edge:rgba(212,175,55,.3);--v:#d4af37;--t:#f0cf6e;--p:#f6e3a1;--o:#e8c766}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden;line-height:1.6}
+h1,h2,h3,.dock,.chip,.btn{font-family:Sora,Inter,system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--t);outline-offset:3px}
+
+/* aurora background */
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 15% 0%,#1b1d33,#07080d 62%)}
+.aurora i{position:absolute;border-radius:50%;opacity:.5;will-change:transform;animation:drift 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:46vmax;height:46vmax;background:radial-gradient(circle,#26306b,transparent 68%);top:-14vmax;left:-10vmax}
+.aurora i:nth-child(2){width:38vmax;height:38vmax;background:radial-gradient(circle,#9a7416,transparent 68%);bottom:-12vmax;right:-8vmax;animation-delay:-8s;opacity:.4}
+.aurora i:nth-child(3){width:30vmax;height:30vmax;background:radial-gradient(circle,#2b2f55,transparent 68%);top:28%;left:50%;animation-delay:-14s;opacity:.3}
+.aurora i:nth-child(4){width:24vmax;height:24vmax;background:radial-gradient(circle,#6b5012,transparent 68%);bottom:6%;left:6%;animation-delay:-4s;opacity:.22}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+
+/* views */
+.view{position:fixed;inset:0;overflow-y:auto;padding:max(28px,env(safe-area-inset-top)) 22px calc(120px + env(safe-area-inset-bottom));display:none}
+.view.on{display:block;animation:in .5s ease both}
+@keyframes in{from{opacity:0;transform:scale(.98) translateY(10px)}}
+.wrap{max-width:1000px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;justify-content:center}
+.glass{background:var(--glass);border:1px solid var(--edge);border-radius:24px;backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:0 20px 50px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.14)}
+
+/* home */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:center;padding:clamp(24px,5vw,52px)}
+.avatar{width:clamp(150px,24vw,260px);aspect-ratio:4/5;border-radius:999px 999px 40px 40px;padding:6px;background:linear-gradient(160deg,var(--v),var(--t),var(--p));box-shadow:0 0 60px rgba(212,175,55,.3),0 24px 40px rgba(0,0,0,.45)}
+.avatar svg{width:100%;height:100%;border-radius:999px 999px 34px 34px;display:block}
+.hello{color:var(--t);font-weight:600;margin-bottom:6px}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.05;letter-spacing:-.03em;background:linear-gradient(90deg,#ffffff,#f6e3a1 60%,#d4af37);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:Sora,sans-serif;font-size:clamp(1.05rem,2.6vw,1.5rem);margin:14px 0 8px;color:var(--ink);min-height:1.6em}
+.role span{border-right:2px solid var(--t);padding-right:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+.lead{color:var(--muted);max-width:46ch;margin-bottom:24px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:99px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--edge);background:var(--glass2);color:var(--ink);cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.2)}
+.btn.main:hover{background:linear-gradient(135deg,#f8e29a,#dcaa38)}
+.btn.main{background:linear-gradient(135deg,#f0cf6e,#c9972b);border-color:transparent;color:#1a1405;box-shadow:0 8px 24px rgba(212,175,55,.35)}
+
+/* shared */
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);letter-spacing:-.02em;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:26px;max-width:52ch}
+.panel{padding:clamp(22px,4vw,40px)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+.about p{color:var(--muted);margin-bottom:14px}
+.facts{display:grid;gap:12px;align-content:start}
+.fact{padding:16px 18px;border-radius:16px;background:var(--glass);border:1px solid var(--edge)}
+.fact b{display:block;font-family:Sora,sans-serif;font-size:1.05rem}
+.fact small{color:var(--muted)}
+
+/* projects: horizontal swipe */
+#projects h2{margin-bottom:24px}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:6px 2px 18px;-webkit-overflow-scrolling:touch;cursor:grab}
+.rail:active{cursor:grabbing}
+.proj.glass{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.railctl{display:flex;gap:10px;justify-content:flex-end;margin-top:8px}
+.railctl .btn{width:46px;height:46px;padding:0;font-size:1.5rem;line-height:1;display:grid;place-items:center}
+.rail::-webkit-scrollbar{height:6px}.rail::-webkit-scrollbar-thumb{background:rgba(212,175,55,.4);border-radius:9px}
+.proj{flex:0 0 min(340px,82vw);scroll-snap-align:start;padding:26px;display:flex;flex-direction:column;gap:14px;min-height:320px;transition:transform .3s}
+.proj:hover{transform:translateY(-6px)}
+.proj .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font:700 1.1rem Sora,sans-serif;color:#1a1405}
+.proj h3{font-size:1.25rem;line-height:1.3}
+.proj p{color:var(--muted);flex:1;font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.78rem;font-weight:600;padding:5px 12px;border-radius:99px;background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(212,175,55,.08));border:1px solid var(--edge)}
+.hint{color:var(--muted);font-size:.85rem;margin-top:4px}
+
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.sk{padding:22px}
+.sk h3{font-size:1rem;margin-bottom:12px;color:var(--o)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.contact a.row{display:block;padding:14px 18px;margin-bottom:12px;border-radius:16px;background:var(--glass);border:1px solid var(--edge);text-decoration:none}
+.contact a.row:hover{background:var(--glass2)}
+.contact a.row small{display:block;color:var(--muted)}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:13px 15px;border-radius:14px;border:1px solid var(--edge);background:rgba(0,0,0,.28);color:var(--ink);font:inherit}
+input::placeholder,textarea::placeholder{color:#7f8cab}
+#msg{min-height:1.4em;font-weight:600;font-size:.92rem}
+.err{color:#ff8a9b}.ok{color:#34d399}
+
+/* dock */
+.dock{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;gap:6px;padding:8px;z-index:20;border-radius:26px;max-width:calc(100vw - 20px)}
+.dock a{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--muted);padding:9px 16px;border-radius:18px;font-size:.72rem;font-weight:600;transition:all .25s}
+.dock a svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dock a:hover{color:var(--ink);transform:translateY(-4px)}
+.dock a[aria-current=page]{color:#1a1405;background:linear-gradient(135deg,#f0cf6e,#c9972b);box-shadow:0 6px 20px rgba(212,175,55,.4)}
+
+@media (max-width:760px){
+  .hero,.about,.contact{grid-template-columns:1fr}
+  .hero{text-align:center;justify-items:center}.btns{justify-content:center}.lead{margin-inline:auto}
+  .dock a{padding:8px 11px}
+  .wrap{justify-content:flex-start;padding-top:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<main>
+<!-- HOME -->
+<section class="view" id="home" aria-label="Home"><div class="wrap">
+  <div class="glass hero">
+    <div class="avatar" role="img" aria-label="Illustration of a developer workspace with code, charts and a coffee cup">
+      <svg viewBox="0 0 200 250">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b2b52"/><stop offset="1" stop-color="#0a0c18"/></linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6dc8a"/><stop offset="1" stop-color="#c9972b"/></linearGradient>
+          <radialGradient id="glow"><stop offset="0" stop-color="#f0cf6e" stop-opacity=".45"/><stop offset="1" stop-color="#f0cf6e" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="200" height="250" fill="url(#bg)"/>
+        <circle cx="100" cy="118" r="92" fill="url(#glow)"/>
+        <g fill="#f0cf6e"><circle cx="24" cy="86" r="1.6" opacity=".7"/><circle cx="178" cy="108" r="1.8" opacity=".6"/><circle cx="46" cy="140" r="1.2" opacity=".5"/><circle cx="160" cy="30" r="1.5" opacity=".6"/><circle cx="90" cy="22" r="1.2" opacity=".5"/></g>
+        <g>
+          <rect x="14" y="30" width="62" height="38" rx="9" fill="#ffffff" fill-opacity=".09" stroke="#f0cf6e" stroke-opacity=".5"/>
+          <circle cx="28" cy="44" r="6" fill="url(#gold)"/>
+          <rect x="40" y="40" width="28" height="4" rx="2" fill="#f6f1e7" opacity=".85"/>
+          <rect x="40" y="48" width="20" height="3.5" rx="1.75" fill="#aaa595" opacity=".8"/>
+          <rect x="22" y="58" width="46" height="3.5" rx="1.75" fill="#f0cf6e" opacity=".55"/>
+        </g>
+        <g>
+          <rect x="128" y="42" width="60" height="34" rx="9" fill="#ffffff" fill-opacity=".09" stroke="#f0cf6e" stroke-opacity=".5"/>
+          <circle cx="146" cy="59" r="9" fill="none" stroke="url(#gold)" stroke-width="2.4"/>
+          <path d="M141.5 59l3.4 3.6 6.2-7" fill="none" stroke="#f6dc8a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="160" y="53" width="20" height="4" rx="2" fill="#f6f1e7" opacity=".85"/>
+          <rect x="160" y="61" width="14" height="3.5" rx="1.75" fill="#aaa595" opacity=".8"/>
+        </g>
+        <rect x="32" y="88" width="136" height="86" rx="9" fill="#12141f" stroke="url(#gold)" stroke-width="2.4"/>
+        <circle cx="43" cy="98" r="2" fill="#ff8a8a"/><circle cx="50" cy="98" r="2" fill="#f0cf6e"/><circle cx="57" cy="98" r="2" fill="#6ee7a8"/>
+        <g>
+          <rect x="42" y="110" width="26" height="4" rx="2" fill="#f0cf6e"/><rect x="72" y="110" width="22" height="4" rx="2" fill="#f6f1e7" opacity=".8"/>
+          <rect x="50" y="120" width="34" height="4" rx="2" fill="#f6f1e7" opacity=".55"/><rect x="88" y="120" width="14" height="4" rx="2" fill="#f0cf6e" opacity=".8"/>
+          <rect x="50" y="130" width="22" height="4" rx="2" fill="#f0cf6e" opacity=".8"/><rect x="76" y="130" width="28" height="4" rx="2" fill="#f6f1e7" opacity=".55"/>
+          <rect x="42" y="140" width="40" height="4" rx="2" fill="#f6f1e7" opacity=".8"/>
+          <rect x="42" y="150" width="18" height="4" rx="2" fill="#f0cf6e"/><rect x="64" y="150" width="30" height="4" rx="2" fill="#f6f1e7" opacity=".5"/>
+        </g>
+        <g>
+          <rect x="116" y="148" width="8" height="14" rx="2" fill="#f0cf6e" opacity=".45"/>
+          <rect x="128" y="140" width="8" height="22" rx="2" fill="#f0cf6e" opacity=".65"/>
+          <rect x="140" y="130" width="8" height="32" rx="2" fill="#f0cf6e" opacity=".85"/>
+          <rect x="152" y="118" width="8" height="44" rx="2" fill="url(#gold)"/>
+        </g>
+        <path d="M18 176h164l-9 14H27z" fill="#343849"/>
+        <rect x="80" y="176" width="40" height="4" rx="2" fill="#12141f"/>
+        <rect x="0" y="196" width="200" height="54" fill="#080a14"/>
+        <rect x="0" y="196" width="200" height="1.5" fill="#f0cf6e" opacity=".4"/>
+        <rect x="30" y="208" width="46" height="8" rx="2" fill="#2b2f40"/><rect x="34" y="216" width="38" height="8" rx="2" fill="url(#gold)"/>
+        <rect x="140" y="206" width="20" height="18" rx="4" fill="#e8c766"/><path d="M160 211h5a4 4 0 010 9h-5" fill="none" stroke="#e8c766" stroke-width="2.4"/>
+        <path d="M146 202q-2-4 0-7M153 202q-2-4 0-7" stroke="#f6f1e7" stroke-opacity=".5" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <p class="hello">Hello, I’m</p>
+      <h1>Shreeja</h1>
+      <p class="role"><span id="typed"></span></p>
+      <p class="lead">I build practical software in Java, Python and the web, from complaint tracking to machine life prediction.</p>
+      <div class="btns">
+        <a class="btn main" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ABOUT -->
+<section class="view" id="about" aria-label="About"><div class="wrap">
+  <h2>About me</h2>
+  <p class="sub">A little about who I am and how I work.</p>
+  <div class="glass panel about">
+    <div>
+      <p>I am Shreeja, a student at KGCAS who enjoys turning real problems into working software.</p>
+      <p>I have built a complaint management system in Java, a remaining useful life predictor in Python, and a real estate listing site with HTML, CSS and JavaScript.</p>
+      <p>I like clean code, clear interfaces and learning by building.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>3 projects</b><small>Java, Python, Web</small></div>
+      <div class="fact"><b>Student at KGCAS</b><small>Learning and building</small></div>
+      <div class="fact"><b>Open to</b><small>Internships and junior roles</small></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROJECTS -->
+<section class="view" id="projects" aria-label="Projects"><div class="wrap">
+  <h2>Projects</h2>
+    <div class="rail" tabindex="0" aria-label="Project list">
+    <article class="glass proj">
+      <div class="ic" style="background:linear-gradient(135deg,#f6dc8a,#d4af37)">J</div>
+      <h3>Digital Complaint Registration and Status Monitoring System</h3>
+      <p>Users register a complaint and follow its status until it is resolved, and staff can update each case.</p>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Complaint tracking</span></div>
+      <a class="btn" href="#" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+    <article class="glass proj">
+      <div class="ic" style="background:linear-gradient(135deg,#e8c766,#b8860b)">RE</div>
+      <h3>Real Estate Listings App</h3>
+      <p>Browse property listings and find the right one with simple filters, on any screen size.</p>
+      <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+      <a class="btn" href="#" target="_blank" rel="noopener">View live demo</a>
+    </article>
+    <article class="glass proj">
+      <div class="ic" style="background:linear-gradient(135deg,#fff0c2,#d9a636)">PY</div>
+      <h3>Remaining Useful Life (RUL) Prediction</h3>
+      <p>Predicts how much working life a machine has left, using its sensor readings over time.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Machine learning</span></div>
+      <a class="btn" href="https://github.com/Shreeja1818/Rul-prediction.git" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+  </div>
+  <div class="railctl">
+    <button class="btn" id="prev" type="button" aria-label="Previous project">&#8249;</button>
+    <button class="btn" id="next" type="button" aria-label="Next project">&#8250;</button>
+  </div>
+</div></section>
+
+<!-- SKILLS -->
+<section class="view" id="skills" aria-label="Skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">The tools I use to build things.</p>
+  <div class="skillgrid">
+    <div class="glass sk"><h3>Languages</h3><div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">JavaScript</span></div></div>
+    <div class="glass sk"><h3>Web</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Responsive design</span></div></div>
+    <div class="glass sk"><h3>Tools</h3><div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Netlify / Vercel</span></div></div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="view" id="contact" aria-label="Contact"><div class="wrap">
+  <h2>Let’s talk</h2>
+  <p class="sub">Send a message or reach me directly.</p>
+  <div class="glass panel contact">
+    <div>
+      <a class="row" href="mailto:sshreeja07@gmail.com">Email<small>sshreeja07@gmail.com</small></a>
+      <a class="row" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub<small>github.com/your-username</small></a>
+      <a class="row" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn<small>linkedin.com/in/your-profile</small></a>
+    </div>
+    <form id="form" novalidate>
+      <input id="name" type="text" placeholder="Your name" autocomplete="name" aria-label="Your name">
+      <input id="email" type="email" placeholder="Your email" autocomplete="email" aria-label="Your email">
+      <textarea id="text" rows="4" placeholder="Your message" aria-label="Your message"></textarea>
+      <button class="btn main" type="submit">Send message</button>
+      <div id="msg" role="status"></div>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<nav class="dock glass" aria-label="Main">
+  <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg>Home</a>
+  <a href="#about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 5-7 8-7s7 2 8 7"/></svg>About</a>
+  <a href="#projects"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>Projects</a>
+  <a href="#skills"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6 6.5.5-5 4.3 1.6 6.4L12 16.7 6.4 20.2 8 13.8 3 9.5 9.5 9z"/></svg>Skills</a>
+  <a href="#contact"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg>Contact</a>
+</nav>
+
+<script>
+// 1. Show one section at a time, based on the link (#home, #about ...)
+const views = document.querySelectorAll('.view');
+const tabs = document.querySelectorAll('.dock a');
+function show(id) {
+  id = id || (location.hash || '#home').slice(1);
+  const target = document.getElementById(id) ? id : 'home';
+  views.forEach(v => v.classList.toggle('on', v.id === target));
+  tabs.forEach(a => a.getAttribute('href') === '#' + target ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+  document.getElementById(target).scrollTop = 0;
+}
+window.addEventListener('hashchange', () => show());
+// Every link that starts with # switches the view directly, so buttons always work
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  e.preventDefault();
+  const h = a.getAttribute('href');
+  if (h.length > 1) {            // "#" alone is a placeholder link, so it does nothing
+    show(h.slice(1));
+    try { history.replaceState(null, '', h); } catch (err) {}
+  }
+});
+show();
+
+// 2. Typing effect for the role line
+const roles = ['Java developer', 'Python and ML learner', 'Web builder'];
+const typed = document.getElementById('typed');
+let r = 0, c = 0, del = false;
+function type() {
+  const word = roles[r];
+  typed.textContent = word.slice(0, c);
+  if (!del && c === word.length) { del = true; return setTimeout(type, 1400); }
+  if (del && c === 0) { del = false; r = (r + 1) % roles.length; }
+  c += del ? -1 : 1;
+  setTimeout(type, del ? 40 : 80);
+}
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) typed.textContent = roles[0]; else type();
+
+// Projects row: arrow buttons, mouse wheel and mouse drag all scroll sideways
+const rail = document.querySelector('.rail');
+const step = () => rail.querySelector('.proj').offsetWidth + 18;
+document.getElementById('next').addEventListener('click', () => rail.scrollBy({ left: step(), behavior: 'smooth' }));
+document.getElementById('prev').addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: 'smooth' }));
+rail.addEventListener('wheel', e => {
+  if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+  const max = rail.scrollWidth - rail.clientWidth;
+  if ((e.deltaY > 0 && rail.scrollLeft < max - 1) || (e.deltaY < 0 && rail.scrollLeft > 0)) {
+    e.preventDefault();
+    rail.scrollLeft += e.deltaY;
+  }
+}, { passive: false });
+let dragging = false, startX = 0, startLeft = 0;
+rail.addEventListener('pointerdown', e => {
+  if (e.pointerType !== 'mouse') return;
+  dragging = true; startX = e.clientX; startLeft = rail.scrollLeft;
+  rail.style.scrollSnapType = 'none';
+});
+window.addEventListener('pointermove', e => { if (dragging) rail.scrollLeft = startLeft - (e.clientX - startX); });
+window.addEventListener('pointerup', () => { dragging = false; rail.style.scrollSnapType = ''; });
+
+// 3. Contact form check
+const form = document.getElementById('form');
+const msg = document.getElementById('msg');
+// Paste your Formspree form ID here (the part after /f/ in your Formspree endpoint)
+const FORM_URL = 'https://formspree.io/f/https://formspree.io/f/mbggazrd';
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const text = document.getElementById('text').value.trim();
+  msg.className = 'err';
+  if (!name) return msg.textContent = 'Enter your name.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return msg.textContent = 'Enter a valid email address.';
+  if (text.length < 10) return msg.textContent = 'Write a message of at least 10 characters.';
+  if (FORM_URL.includes('YOUR_FORM_ID')) return msg.textContent = 'The form is not connected yet. Please email me directly.';
+  msg.className = 'ok';
+  msg.textContent = 'Sending...';
+  try {
+    const res = await fetch(FORM_URL, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, message: text })
+    });
+    if (!res.ok) throw new Error('failed');
+    msg.textContent = 'Thanks, ' + name + '. Your message was sent.';
+    form.reset();
+  } catch (err) {
+    msg.className = 'err';
+    msg.textContent = 'Could not send the message. Please email me directly.';
+  }
+});
+</script>
+</body>
+</html>
